@@ -1,0 +1,28 @@
+<form [formGroup]="FormAdd" (ngSubmit)="onAdd()" class="m-auto pt-5" action="" style="width: 300px;">
+    <div class="row form-floating mb-4">
+        <input type="text" name="" id="name" formControlName="name" placeholder="name" class="form-control">
+        <label for="name" class="form-label">Name:</label>
+        <div *ngIf="CheckName.invalid && (CheckName.touched || CheckName.dirty)">
+            <span class="text-danger" *ngIf="CheckName.errors?.['required']">Name is required</span>
+            <span class="text-danger" *ngIf="CheckName.errors?.['pattern']">Name is not correct</span>
+        </div>
+    </div>
+    <div class="row form-floating mb-4">
+        <input type="number" name="" id="price" formControlName="price" placeholder="price" class="form-control">
+        <label for="price" class="form-label">Price:</label>
+        <div *ngIf="CheckPrice.invalid && (CheckPrice.touched || CheckPrice.dirty)">
+            <span class="text-danger" *ngIf="CheckPrice.errors?.['required']">Price is required</span>
+            <span class="text-danger" *ngIf="CheckPrice.errors?.['min']">Price min 100</span>
+        </div>
+    </div>
+    <div class="row form-floating mb-4">
+        <input type="text" name="" id="img" formControlName="img" placeholder="img" class="form-control">
+        <label for="img" class="form-label">Img:</label>
+        <div *ngIf="CheckImg.invalid && (CheckImg.touched || CheckImg.dirty)">
+            <span class="text-danger" *ngIf="CheckImg.errors?.['required']">Img is required</span>
+        </div>
+    </div>
+    <div class="row form-floating mb-4">
+        <button class="btn btn-primary mt-2" [disabled]="!FormAdd.valid">Add</button>
+    </div>
+</form>
